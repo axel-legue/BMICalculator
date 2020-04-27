@@ -1,6 +1,11 @@
-import 'package:bmi_calculator/reusable_card.dart';
+import 'file:///C:/Users/Famille/AndroidStudioProjects/bmi-calculator-flutter/lib/component/reusable_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'component/Icon_content.dart';
+import 'colors.dart';
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,7 +17,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('BMI CALCULATOR'),
+          title: Center(child: Text('BMI CALCULATOR')),
         ),
         body: Column(
           children: <Widget>[
@@ -22,12 +27,20 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableCard(
-                      color: Color(0xFF1D1E33),
+                      color: cardColor,
+                      cardChild: IconContent(
+                        iconData: FontAwesomeIcons.mars,
+                        text: 'MALE',
+                      ),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      color: Color(0xFF1D1E33),
+                      color: cardColor,
+                      cardChild: IconContent(
+                        iconData: FontAwesomeIcons.venus,
+                        text: 'FEMALE',
+                      ),
                     ),
                   ),
                 ],
@@ -35,7 +48,7 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: ReusableCard(
-                color: Color(0xFF1D1E33),
+                color: cardColor,
               ),
             ),
             Expanded(
@@ -44,19 +57,24 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableCard(
-                      color: Color(0xFF1D1E33),
+                      color: cardColor,
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      color: Color(0xFF1D1E33),
+                      color: cardColor,
                     ),
                   ),
                 ],
               ),
             ),
+            Container(
+              color: bottomContainerColor,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
+            )
           ],
         ));
   }
 }
-
