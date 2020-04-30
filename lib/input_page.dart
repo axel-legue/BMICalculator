@@ -6,6 +6,7 @@ import 'file:///C:/Users/Famille/AndroidStudioProjects/bmi-calculator-flutter/li
 
 import 'colors.dart';
 import 'component/Icon_content.dart';
+import 'component/RoundIconButton.dart';
 import 'constants.dart';
 import 'enum/GenderEnum.dart';
 
@@ -22,6 +23,7 @@ class _InputPageState extends State<InputPage> {
 
   int height = 180;
   int weight = 60;
+  int age = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -133,26 +135,39 @@ class _InputPageState extends State<InputPage> {
                             'WEIGHT',
                             style: kLabelTextStyle,
                           ),
-                          Text(
-                            weight.toString(),
-                            style: kInputTextStyle,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.alphabetic,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                weight.toString(),
+                                style: kInputTextStyle,
+                              ),
+                              Text(
+                                'kg',
+                                style: kLabelTextStyle,
+                              ),
+                            ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              FloatingActionButton(
-                                backgroundColor: Color(0xFF4c4F5E),
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.plus,
                               ),
-                              FloatingActionButton(
-                                backgroundColor: Color(0xFF4c4F5E),
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.minus,
                               ),
                             ],
                           ),
@@ -163,6 +178,40 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: ReusableCard(
                       color: kActiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            age.toString(),
+                            style: kInputTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.plus,
+                              ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.minus,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
