@@ -1,8 +1,8 @@
-import 'package:bmi_calculator/result_page.dart';
+import 'file:///C:/Users/Famille/AndroidStudioProjects/bmi-calculator-flutter/lib/screens/result_page.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
-import 'input_page.dart';
+import 'screens/input_page.dart';
 
 void main() => runApp(BMICalculator());
 

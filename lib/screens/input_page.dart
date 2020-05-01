@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bmi_calculator/component/Icon_content.dart';
+import 'package:bmi_calculator/component/bottom_button.dart';
+import 'package:bmi_calculator/component/reusable_card.dart';
+import 'package:bmi_calculator/component/round_icon_button.dart';
+import 'package:bmi_calculator/enum/GenderEnum.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'file:///C:/Users/Famille/AndroidStudioProjects/bmi-calculator-flutter/lib/component/reusable_card.dart';
-
-import 'colors.dart';
-import 'component/Icon_content.dart';
-import 'component/RoundIconButton.dart';
-import 'constants.dart';
-import 'enum/GenderEnum.dart';
+import '../colors.dart';
+import '../constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -217,24 +216,11 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, '/result'),
-              child: Container(
-                child: Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-                color: kBottomContainerColor,
-                margin: EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-              ),
+            BottomButton(
+              buttonTitle: 'CALCULATE',
+              onTap: () {
+                Navigator.pushNamed(context, '/result');
+              },
             ),
           ],
         ));
