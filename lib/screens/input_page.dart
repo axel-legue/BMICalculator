@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/BmiBrain.dart';
 import 'package:bmi_calculator/component/Icon_content.dart';
 import 'package:bmi_calculator/component/bottom_button.dart';
 import 'package:bmi_calculator/component/reusable_card.dart';
@@ -155,18 +156,18 @@ class _InputPageState extends State<InputPage> {
                               RoundIconButton(
                                 onPressed: () {
                                   setState(() {
-                                    weight++;
-                                  });
-                                },
-                                iconData: FontAwesomeIcons.plus,
-                              ),
-                              RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
                                     weight--;
                                   });
                                 },
                                 iconData: FontAwesomeIcons.minus,
+                              ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.plus,
                               ),
                             ],
                           ),
@@ -194,18 +195,18 @@ class _InputPageState extends State<InputPage> {
                               RoundIconButton(
                                 onPressed: () {
                                   setState(() {
-                                    age++;
-                                  });
-                                },
-                                iconData: FontAwesomeIcons.plus,
-                              ),
-                              RoundIconButton(
-                                onPressed: () {
-                                  setState(() {
                                     age--;
                                   });
                                 },
                                 iconData: FontAwesomeIcons.minus,
+                              ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                                iconData: FontAwesomeIcons.plus,
                               ),
                             ],
                           ),
@@ -219,7 +220,9 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               buttonTitle: 'CALCULATE',
               onTap: () {
-                Navigator.pushNamed(context, '/result');
+                BMIBrain calc = BMIBrain(height, weight);
+                calc.calculateBMI();
+                Navigator.pushNamed(context, '/result', arguments: calc);
               },
             ),
           ],
